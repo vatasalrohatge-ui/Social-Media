@@ -6,9 +6,14 @@ const cors = require("cors");
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+const allowedOrigins = [
+  'https://shot-novel.vercel.app',
+  'shot-novel-4ai3xfema-vatasalrohatge-uis-projects.vercel.app',
+];
+
 app.use(cors({
-  origin: "https://shot-novel-4ai3xfema-vatasalrohatge-uis-projects.vercel.app", "https://shot-novel.vercel.app/",
-  credentials: true,
+  origin: allowedOrigins,
+  credentials: true
 }));
 app.use("/api/file", postRoutes);
 app.use("/api", authRoutes);
