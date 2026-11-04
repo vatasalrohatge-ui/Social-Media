@@ -31,7 +31,11 @@ async function register(req,res) {
         const token = jwt.sign({
             id: User._id
         }, process.env.JWT_SECRET_KEY)
-        res.cookie("token", token)
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,        // MUST be true for cross-origin HTTPS
+            sameSite: "none",  
+        })
     
         res.status(201).json({
             message: "User Created Successfully"
@@ -67,7 +71,11 @@ async function logIn(req,res) {
             id: user._id
         }, process.env.JWT_SECRET_KEY)
 
-        res.cookie("token", newToken)
+        res.cookie("token", newToken, {
+            httpOnly: true,
+            secure: true,        // MUST be true for cross-origin HTTPS
+            sameSite: "none",  
+        })
         
         res.status(200).json({
             message: "User Logged In Sucessfully",
