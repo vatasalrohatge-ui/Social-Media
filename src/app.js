@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cookieParser());
 const allowedOrigins = [
   'https://shot-novel.vercel.app',
-  'shot-novel-4ai3xfema-vatasalrohatge-uis-projects.vercel.app',
+  'https://shot-novel-4ai3xfema-vatasalrohatge-uis-projects.vercel.app/',
 ];
 
 app.use(cors({
