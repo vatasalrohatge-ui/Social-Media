@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: "https://shot-novel.vercel.app/logIn",
+  origin: "https://shot-novel-4ai3xfema-vatasalrohatge-uis-projects.vercel.app",
   credentials: true,
 }));
 app.use("/api/file", postRoutes);
